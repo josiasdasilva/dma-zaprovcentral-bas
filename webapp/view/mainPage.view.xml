@@ -1,0 +1,216 @@
+<mvc:View
+    controllerName="dma.zaprovcentral.controller.mainPage"
+    xmlns="sap.m"
+	xmlns:fb="sap.ui.comp.filterbar"
+	xmlns:l="sap.ui.layout"
+    xmlns:mvc="sap.ui.core.mvc"
+    displayBlock="true"
+>
+	<Shell
+        id="shell"
+        appWidthLimited="false" >
+		<App id="app">
+			<pages>
+				<Page id="page" title="{i18n>titleMainPage}">
+					<content>
+                        
+
+                        <l:VerticalLayout width="100%">
+                            <fb:FilterBar
+                                id="idFilterBar01"
+                                reset="onReset"
+                                search="onSearch"
+                                clear="onClear"
+                                cancel="onCancel" 
+                                showRestoreButton="true"
+                                showClearButton="true" >
+
+<!--
+                            // OLD TRY
+                            // JSON model
+                            {
+                                "idTable01": {
+                                    "fields": [
+                                        {
+                                            "name": "Comprador",
+                                            "column": {
+                                                "width": "10%"
+                                            },
+                                            "filter": {
+                                                "id": "idInputComprador01",
+                                                "name": "A",
+                                                "valueHelpRequest": "onValueHelpRequestComprador01"
+                                            }
+                                        },
+                                        {
+                                            "name": "Fornecedor",
+                                            "column": {
+                                                "width": "90%"
+                                            },
+                                            "filter": {
+                                                "id": "idInputFornecedor01",
+                                                "name": "B",
+                                                "valueHelpRequest": "onValueHelpRequestFornecedor01"
+                                            }
+                                        }
+                                    ]
+                                }
+                            }
+
+                            <fb:FilterBar
+                                id="idFilterBar01"
+                                reset="onReset"
+                                search="onSearch"
+                                clear="onClear"
+                                cancel="onCancel" 
+                                showRestoreButton="true"
+                                showClearButton="true"
+                                filterGroupItems="{
+                                    path: 'modelTableDefinition>/idTable01/fields'
+                                }">
+
+                                <fb:filterGroupItems >
+                                    <fb:FilterGroupItem
+                                        groupName="__$INTERNAL$"
+                                        name="{modelTableDefinition>filter/id}"
+                                        label="{modelTableDefinition>name}"
+                                        partOfCurrentVariant="true"
+                                        visibleInFilterBar="true">
+                                        <fb:control>
+                                            <MultiInput
+                                                value=""
+                                                placeholder=""
+                                                showValueHelp="true"
+                                                valueHelpOnly="true"
+                                                valueHelpRequest="onValueHelpRequest" />
+                                        </fb:control>
+                                    </fb:FilterGroupItem>
+                                </fb:filterGroupItems>
+-->
+
+                                <fb:filterGroupItems>
+                                    <fb:FilterGroupItem
+                                        groupName="__$INTERNAL$"
+                                        name="A"
+                                        label="Comprador"
+                                        partOfCurrentVariant="true"
+                                        visibleInFilterBar="true">
+                                        <fb:control>
+                                            <MultiInput
+                                                id="idMultiInputComprador01"
+                                                value=""
+                                                placeholder=""
+                                                showValueHelp="true"
+                                                valueHelpOnly="true"
+                                                valueHelpRequest="onValueHelpRequest" />
+                                        </fb:control>
+                                    </fb:FilterGroupItem>
+
+                                    <fb:FilterGroupItem
+                                        groupName="__$INTERNAL$"
+                                        name="B"
+                                        label="Fornecedor"
+                                        labelTooltip="Tooltip Example"
+                                        mandatory="false"
+                                        partOfCurrentVariant="true"
+                                        visibleInFilterBar="true">
+                                        <fb:control>
+                                            <MultiInput
+                                                id="idMultiInputFornecedor01"
+                                                value=""
+                                                placeholder=""
+                                                showValueHelp="true"
+                                                valueHelpOnly="true"
+                                                valueHelpRequest="onValueHelpRequest" />
+                                        </fb:control>
+                                    </fb:FilterGroupItem>
+
+                                    <fb:FilterGroupItem
+                                        groupName="__$INTERNAL$"
+                                        name="C"
+                                        label="CD"
+                                        partOfCurrentVariant="true"
+                                        visibleInFilterBar="true">
+                                        <fb:control>
+                                            <MultiInput
+                                                id="idMultiInputCd01"
+                                                value=""
+                                                placeholder=""
+                                                showValueHelp="true"
+                                                valueHelpOnly="true"
+                                                valueHelpRequest="onValueHelpRequest" />
+                                        </fb:control>
+                                    </fb:FilterGroupItem>
+
+                                    <fb:FilterGroupItem
+                                        groupName="__$INTERNAL$"
+                                        name="D"
+                                        label="Data do Pedido"
+                                        partOfCurrentVariant="true"
+                                        visibleInFilterBar="true">
+                                        <fb:control>
+                                            <DatePicker
+                                                id="idDatePickerDataPedido01"
+                                                change="onChange"/>
+                                        </fb:control>
+                                    </fb:FilterGroupItem>
+                                </fb:filterGroupItems>
+
+                            </fb:FilterBar>
+                        </l:VerticalLayout>
+
+
+                        <Table
+                            id="idTable01"
+                            items="{
+                                path: 'modelMockData1>/idTable01/data'
+                            }"
+                            columns="{
+                                path: 'modelTableDefinition>/idTable01/fields'
+                            }">
+<!--
+                            <headerToolbar>
+                                <Toolbar>
+                                    <Title text="test" level="H2"/>
+                                </Toolbar>
+                            </headerToolbar>
+-->
+                            <columns>
+                                <Column
+                                    width="{modelTableDefinition>column/width}">
+                                    <Label
+                                        text="{modelTableDefinition>name}" />
+                                </Column>
+<!--
+                                <Column width="{clone>width}" styleClass="{clone>styleClass}" demandPopin="{clone>demandPopin}" minScreenWidth="{clone>minScreenWidth}" popinDisplay="WithoutHeader">
+                                    <Input value="{clone>width}" description="{clone>header}"/>
+                                </Column>
+-->
+                            </columns>
+                            <items>
+                                <ColumnListItem
+                                    vAlign="Middle"
+                                    type="Navigation"
+                                    press="onNavigation" >
+                                    <cells>
+                                        <Text text="{modelMockData1>Solicitacao}" wrapping="false" />
+                                        <Text text="{modelMockData1>Comprador}" wrapping="false" />
+                                        <Text text="{modelMockData1>Fornecedor}" wrapping="false" />
+                                        <Text text="{modelMockData1>Cd}" wrapping="false" />
+                                        <Text text="{modelMockData1>DataPedido}" wrapping="false" />
+                                        <Text text="{modelMockData1>ItensPend}" wrapping="false" />
+                                        <Text text="{modelMockData1>ItensAprov}" wrapping="false" />
+                                        <Text text="{modelMockData1>ItensReprov}" wrapping="false" />
+                                        <Text text="{modelMockData1>TotalItens}" wrapping="false" />
+                                    </cells>
+                                </ColumnListItem>
+                            </items>
+                        </Table>
+
+
+                    </content>
+				</Page>
+			</pages>
+		</App>
+	</Shell>
+</mvc:View>

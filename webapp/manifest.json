@@ -1,0 +1,142 @@
+{
+  "_version": "1.32.0",
+  "sap.app": {
+    "id": "dma.zaprovcentral",
+    "type": "application",
+    "i18n": "i18n/i18n.properties",
+    "applicationVersion": {
+      "version": "1.0.0"
+    },
+    "title": "{{appTitle}}",
+    "description": "{{appDescription}}",
+    "resources": "resources.json",
+    "ach": "ach",
+    "dataSources": {
+      "ZCOCKPIT_CENTRAL_SRV": {
+        "uri": "/sap/opu/odata/sap/ZCOCKPIT_CENTRAL_SRV",
+        "type": "OData",
+        "settings": {
+          "odataVersion": "2.0",
+          "localUri": "localService/metadata.xml"
+        }
+      }
+    }
+  },
+  "sap.ui": {
+    "technology": "UI5",
+    "icons": {
+      "icon": "sap-icon://task",
+      "favIcon": "",
+      "phone": "",
+      "phone@2": "",
+      "tablet": "",
+      "tablet@2": ""
+    },
+    "deviceTypes": {
+      "desktop": true,
+      "tablet": true,
+      "phone": true
+    }
+  },
+
+  "sap.ui5": {
+    "flexEnabled": false,
+    "rootView": {
+      "viewName": "dma.zaprovcentral.view.mainPage",
+      "type": "XML",
+      "async": true,
+      "id": "mainPage"
+    },
+    "dependencies": {
+      "minUI5Version": "1.66.0",
+      "libs": {
+        "sap.ui.core": {},
+        "sap.m": {},
+        "sap.ui.layout": {}
+      }
+    },
+    "contentDensities": {
+      "compact": true,
+      "cozy": true
+    },
+    "models": {
+      "i18n": {
+        "type": "sap.ui.model.resource.ResourceModel",
+        "settings": {
+          "bundleName": "dma.zaprovcentral.i18n.i18n"
+        }
+      },
+	  "": {
+        "type": "sap.ui.model.odata.v2.ODataModel",
+        "settings": {
+          "defaultOperationMode": "Server",
+          "defaultBindingMode": "OneWay",
+          "defaultCountMode": "Request",
+          "defaultUpdateMethod": "PUT"
+        },
+        "dataSource": "ZCOCKPIT_CENTRAL_SRV",
+        "preload": true
+      },
+      "modelTableDefinition": {
+        "type": "sap.ui.model.json.JSONModel",
+        "settings": {},
+        "uri": "model/tableDefinition.json",
+        "preload": false
+      },
+      "modelMockData1": {
+        "type": "sap.ui.model.json.JSONModel",
+        "settings": {},
+        "uri": "model/mockData1.json",
+        "preload": false
+      }
+    },
+    "resources": {
+      "css": [
+        {
+          "uri": "css/style.css"
+        }
+      ]
+    },
+    "routing": {
+      "config": {
+        "routerClass": "sap.m.routing.Router",
+        "viewType": "XML",
+        "async": true,
+        "viewPath": "dma.zaprovcentral.view",
+        "controlAggregation": "pages",
+        "controlId": "app",
+        "clearControlAggregation": false
+      },
+      "routes": [
+        {
+          "name": "routeMainPage",
+          "pattern": "",
+          "target": [
+            "targetMainPage"
+          ]
+        },
+        {
+          "name": "routeDetailPage",
+          "pattern": "DetailPage",
+          "target": [
+            "targetDetailPage"
+          ]
+        }
+      ],
+      "targets": {
+        "targetMainPage": {
+          "viewType": "XML",
+          "transition": "slide",
+          "clearControlAggregation": false,
+          "viewName": "mainPage"
+        },
+        "targetDetailPage": {
+          "viewType": "XML",
+          "transition": "slide",
+          "clearControlAggregation": false,
+          "viewName": "detailPage"
+        }
+      }
+    }
+  }
+}

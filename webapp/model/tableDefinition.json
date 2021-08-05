@@ -1,0 +1,127 @@
+{
+    "idTable01": {
+        "fields": [
+            {
+                "name": "Solicitação",
+                "column": {
+                    "width": "auto"
+                }
+            },
+            {
+                "name": "Comprador",
+                "column": {
+                    "width": "auto"
+                },
+                "filter": {
+                    "inputid": "idMultiInputComprador01",
+                    "inputvaluehelpmethod": "onValueHelpRequestComprador"
+                }
+            },
+            {
+                "name": "Fornecedor",
+                "column": {
+                    "width": "auto"
+                },
+                "filter": {
+                    "inputid": "idMultiInputFornecedor01",
+                    "inputvaluehelpmethod": "onValueHelpRequestFornecedor"
+                }
+            },
+            {
+                "name": "CD",
+                "column": {
+                    "width": "auto"
+                },
+                "filter": {
+                    "inputid": "idMultiInputCd01",
+                    "inputvaluehelpmethod": "onValueHelpRequestCd"
+                }
+            },
+            {
+                "name": "Data do Pedido",
+                "column": {
+                    "width": "auto"
+                },
+                "filter": {
+                    "inputid": "idDatePickerDataPedido01"
+                }
+            },
+            {
+                "name": "Itens pendentes",
+                "column": {
+                    "width": "auto"
+                }
+            },
+            {
+                "name": "Itens aprovados",
+                "column": {
+                    "width": "auto"
+                }
+            },
+            {
+                "name": "Itens reprovados",
+                "column": {
+                    "width": "auto"
+                }
+            },
+            {
+                "name": "Total de itens",
+                "column": {
+                    "width": "auto"
+                }
+            }
+        ]
+    },
+    "idTable02": {
+        "fields": [
+            {
+                "name": "Número do item",
+                "column": {
+                    "width": "auto"
+                }
+            },
+            {
+                "name": "Código do Material",
+                "column": {
+                    "width": "auto"
+                }
+            },
+            {
+                "name": "Descrição do Material",
+                "column": {
+                    "width": "auto"
+                }
+            },
+            {
+                "name": "Quantidade",
+                "column": {
+                    "width": "auto"
+                }
+            },
+            {
+                "name": "Preço",
+                "column": {
+                    "width": "auto"
+                }
+            },
+            {
+                "name": "Total",
+                "column": {
+                    "width": "auto"
+                }
+            },
+            {
+                "name": "Unidade de Medida",
+                "column": {
+                    "width": "auto"
+                }
+            },
+            {
+                "name": "Status do item",
+                "column": {
+                    "width": "auto"
+                }
+            }
+        ]
+    }
+}

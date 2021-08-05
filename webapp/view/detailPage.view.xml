@@ -1,0 +1,166 @@
+<mvc:View
+    controllerName="dma.zaprovcentral.controller.detailPage"
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core"
+	xmlns:html="http://www.w3.org/1999/xhtml"
+    xmlns:mvc="sap.ui.core.mvc" >
+	<App>
+		<pages>
+			<Page
+				title="{i18n>titleDetailPage}"
+				showNavButton="true"
+				navButtonPress="onBack">
+				<content>
+
+
+<!--
+                    <l:VerticalLayout width="100%">
+                        <fb:FilterBar
+                            id="idFilterBar02"
+                            reset="onReset"
+                            search="onSearch"
+                            clear="onClear"
+                            cancel="onCancel" 
+                            showRestoreButton="true"
+                            showClearButton="true" >
+                            
+                            <fb:filterGroupItems>
+                                <fb:FilterGroupItem
+                                    groupName="__$INTERNAL$"
+                                    name="A"
+                                    label="Comprador"
+                                    partOfCurrentVariant="true"
+                                    visibleInFilterBar="true">
+                                    <fb:control>
+                                        <MultiInput
+                                            id="idMultiInputComprador01"
+                                            value=""
+                                            placeholder=""
+                                            showValueHelp="true"
+                                            valueHelpOnly="true"
+                                            valueHelpRequest="onValueHelpRequest" />
+                                    </fb:control>
+                                </fb:FilterGroupItem>
+
+                                <fb:FilterGroupItem
+                                    groupName="__$INTERNAL$"
+                                    name="B"
+                                    label="Fornecedor"
+                                    labelTooltip="Tooltip Example"
+                                    mandatory="false"
+                                    partOfCurrentVariant="true"
+                                    visibleInFilterBar="true">
+                                    <fb:control>
+                                        <MultiInput
+                                            id="idMultiInputFornecedor01"
+                                            value=""
+                                            placeholder=""
+                                            showValueHelp="true"
+                                            valueHelpOnly="true"
+                                            valueHelpRequest="onValueHelpRequest" />
+                                    </fb:control>
+                                </fb:FilterGroupItem>
+
+                                <fb:FilterGroupItem
+                                    groupName="__$INTERNAL$"
+                                    name="C"
+                                    label="CD"
+                                    partOfCurrentVariant="true"
+                                    visibleInFilterBar="true">
+                                    <fb:control>
+                                        <MultiInput
+                                            id="idMultiInputCd01"
+                                            value=""
+                                            placeholder=""
+                                            showValueHelp="true"
+                                            valueHelpOnly="true"
+                                            valueHelpRequest="onValueHelpRequest" />
+                                    </fb:control>
+                                </fb:FilterGroupItem>
+
+                                <fb:FilterGroupItem
+                                    groupName="__$INTERNAL$"
+                                    name="D"
+                                    label="Data do Pedido"
+                                    partOfCurrentVariant="true"
+                                    visibleInFilterBar="true">
+                                    <fb:control>
+                                        <DatePicker
+                                            id="idDatePickerDataPedido01"
+                                            change="onChange"/>
+                                    </fb:control>
+                                </fb:FilterGroupItem>
+                            </fb:filterGroupItems>
+
+                        </fb:FilterBar>
+                    </l:VerticalLayout>
+-->
+
+
+                    <Table
+                        id="idTable02"
+                        mode="MultiSelect"
+                        items="{
+                            path: 'modelMockData1>/idTable02/data'
+                        }"
+                        columns="{
+                            path: 'modelTableDefinition>/idTable02/fields'
+                        }"
+                        selectionChange="onLineSelection" >
+<!--
+                        <headerToolbar>
+                            <Toolbar>
+                                <Title text="test" level="H2"/>
+                            </Toolbar>
+                        </headerToolbar>
+-->
+                        <headerToolbar>
+                            <OverflowToolbar>
+                                <ToolbarSpacer/>
+				                <Button
+                                    text="Aprovar"
+                                    icon="sap-icon://accept"
+                                    press="" />
+				                <Button
+                                    text="Reprovar"
+                                    icon="sap-icon://decline"
+                                    press="" />
+                            </OverflowToolbar>
+                        </headerToolbar>
+
+                        <columns>
+                            <Column
+                                width="{modelTableDefinition>column/width}">
+                                <Label
+                                    text="{modelTableDefinition>name}" />
+                            </Column>
+                        </columns>
+                        <items>
+                            <ColumnListItem
+                                vAlign="Middle" >
+                                <cells>
+                                    <Text text="{modelMockData1>NumItem}" wrapping="false" />
+                                    <Text text="{modelMockData1>CodMaterial}" wrapping="false" />
+                                    <Text text="{modelMockData1>DescMaterial}" wrapping="false" />
+                                    <Text text="{modelMockData1>Quantidade}" wrapping="false" />
+                                    <Text text="{modelMockData1>Preco}" wrapping="false" />
+                                    <Text text="{modelMockData1>Total}" wrapping="false" />
+                                    <Text text="{modelMockData1>UnidMedida}" wrapping="false" />
+                                    <!-- <Text text="{modelMockData1>StatusItem}" wrapping="false" /> -->
+                                    <ObjectStatus
+                                        text="{modelMockData1>StatusItem}"
+                                        state="{
+                                            path: 'modelMockData1>StatusItem',
+                                            formatter: '.formatter.statusFormat'
+                                        }" />
+                                </cells>
+                            </ColumnListItem>
+                        </items>
+                    </Table>
+
+
+                </content>
+            </Page>
+        </pages>
+    </App>
+</mvc:View>
