@@ -12,8 +12,8 @@
     "resources": "resources.json",
     "ach": "ach",
     "dataSources": {
-      "ZCOCKPIT_CENTRAL_SRV": {
-        "uri": "/sap/opu/odata/sap/ZCOCKPIT_CENTRAL_SRV",
+      "ZCOCKPIT_APROVCENTRAL_SRV": {
+        "uri": "/sap/opu/odata/sap/ZCOCKPIT_APROVCENTRAL_SRV",
         "type": "OData",
         "settings": {
           "odataVersion": "2.0",
@@ -70,12 +70,18 @@
         "type": "sap.ui.model.odata.v2.ODataModel",
         "settings": {
           "defaultOperationMode": "Server",
-          "defaultBindingMode": "OneWay",
+          "defaultBindingMode": "TwoWay",
           "defaultCountMode": "Request",
           "defaultUpdateMethod": "PUT"
         },
-        "dataSource": "ZCOCKPIT_CENTRAL_SRV",
+        "dataSource": "ZCOCKPIT_APROVCENTRAL_SRV",
         "preload": true
+      },
+      "modelTableSelectedLine": {
+        "type": "sap.ui.model.json.JSONModel",
+        "settings": {},
+        "uri": "",
+        "preload": false
       },
       "modelTableDefinition": {
         "type": "sap.ui.model.json.JSONModel",

@@ -2,60 +2,62 @@
     "idTable01": {
         "data": [
             {
-                "Solicitacao": "0000000001",
+                "NumControle": "0000000001",
                 "Comprador": "F04",
-                "Fornecedor": "Ambev",
+                "NomeComprador": "Comprador de teste",
                 "Cd": "CD01",
+                "Fornecedor": "100500",
+                "NomeFornecedor": "Ambev",
                 "DataPedido": "21/07/2021",
-                "ItensPend": "2",
-                "ItensAprov": "1",
-                "ItensReprov": "3",
-                "TotalItens": "6"
+                "ItensTotal": "2",
+                "ItensPend": "0",
+                "Status": "Reprovado"
             },
             {
-                "Solicitacao": "0000000002",
+                "NumControle": "0000000002",
                 "Comprador": "F04",
-                "Fornecedor": "Ambev",
+                "NomeComprador": "Comprador de teste",
                 "Cd": "CD02",
+                "Fornecedor": "100500",
+                "NomeFornecedor": "Ambev",
                 "DataPedido": "01/06/2021",
+                "ItensTotal": "3",
                 "ItensPend": "1",
-                "ItensAprov": "1",
-                "ItensReprov": "1",
-                "TotalItens": "3"
+                "Status": "Pendente"
             }
         ]
     },
     "idTable02": {
         "data": [
             {
-                "NumItem": "000010",
                 "CodMaterial": "000000000010000000",
                 "DescMaterial": "Produto 10000000",
-                "Quantidade": "50",
-                "Preco": "2300.00",
-                "Total": "115000.00",
-                "UnidMedida": "CX",
-                "StatusItem": "Reprovado"
+                "QuantidadeSolicitada": "50",
+                "QuantidadeAprovada": "",
+                "Solicitante": "9001000 - Usuário de Teste",
+                "DataSolicitacao": "10/08/2021",
+                "HoraSolicitacao": "11:00:00",
+                "Status": "Reprovado"
             },
             {
-                "NumItem": "000020",
                 "CodMaterial": "000000000020000000",
                 "DescMaterial": "Produto 20000000",
-                "Quantidade": "10",
-                "Preco": "375.00",
-                "Total": "3750.00",
-                "UnidMedida": "PC",
-                "StatusItem": "Aprovado"
+                "QuantidadeSolicitada": "10",
+                "QuantidadeAprovada": "",
+                "Solicitante": "9001000 - Usuário de Teste",
+                "DataSolicitacao": "15/08/2021",
+                "HoraSolicitacao": "09:45:00",
+                "Status": "Aprovado"
             },
             {
-                "NumItem": "000030",
                 "CodMaterial": "000000000030000000",
                 "DescMaterial": "Produto 30000000",
-                "Quantidade": "25",
-                "Preco": "580.00",
-                "Total": "14500.00",
-                "UnidMedida": "PC",
-                "StatusItem": "Pendente"
+                "QuantidadeSolicitada": "25",
+                "QuantidadeAprovada": "",
+                "Solicitante": "9001000 - Usuário de Teste",
+                "DataSolicitacao": "05/08/2021",
+                "HoraSolicitacao": "13:15:00",
+                "Status": "Pendente"
             }
         ]
     }

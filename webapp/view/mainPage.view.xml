@@ -1,6 +1,7 @@
 <mvc:View
     controllerName="dma.zaprovcentral.controller.mainPage"
     xmlns="sap.m"
+    xmlns:core="sap.ui.core"
 	xmlns:fb="sap.ui.comp.filterbar"
 	xmlns:l="sap.ui.layout"
     xmlns:mvc="sap.ui.core.mvc"
@@ -92,12 +93,12 @@
                                     <fb:FilterGroupItem
                                         groupName="__$INTERNAL$"
                                         name="A"
-                                        label="Comprador"
+                                        label="Nº Controle"
                                         partOfCurrentVariant="true"
                                         visibleInFilterBar="true">
                                         <fb:control>
                                             <MultiInput
-                                                id="idMultiInputComprador01"
+                                                id="idMultiInputNumControle01"
                                                 value=""
                                                 placeholder=""
                                                 showValueHelp="true"
@@ -109,14 +110,12 @@
                                     <fb:FilterGroupItem
                                         groupName="__$INTERNAL$"
                                         name="B"
-                                        label="Fornecedor"
-                                        labelTooltip="Tooltip Example"
-                                        mandatory="false"
+                                        label="Comprador"
                                         partOfCurrentVariant="true"
                                         visibleInFilterBar="true">
                                         <fb:control>
                                             <MultiInput
-                                                id="idMultiInputFornecedor01"
+                                                id="idInputComprador01"
                                                 value=""
                                                 placeholder=""
                                                 showValueHelp="true"
@@ -128,12 +127,27 @@
                                     <fb:FilterGroupItem
                                         groupName="__$INTERNAL$"
                                         name="C"
-                                        label="CD"
+                                        label="Data do Pedido"
                                         partOfCurrentVariant="true"
                                         visibleInFilterBar="true">
                                         <fb:control>
-                                            <MultiInput
-                                                id="idMultiInputCd01"
+                                            <DatePicker
+                                                id="idDatePickerDataPedido01"
+                                                change="onChange"/>
+                                        </fb:control>
+                                    </fb:FilterGroupItem>
+
+                                    <fb:FilterGroupItem
+                                        groupName="__$INTERNAL$"
+                                        name="D"
+                                        label="Fornecedor"
+                                        labelTooltip="Tooltip Example"
+                                        mandatory="false"
+                                        partOfCurrentVariant="true"
+                                        visibleInFilterBar="true">
+                                        <fb:control>
+                                            <Input
+                                                id="idInputFornecedor01"
                                                 value=""
                                                 placeholder=""
                                                 showValueHelp="true"
@@ -144,14 +158,27 @@
 
                                     <fb:FilterGroupItem
                                         groupName="__$INTERNAL$"
-                                        name="D"
-                                        label="Data do Pedido"
+                                        name="E"
+                                        label="Status"
                                         partOfCurrentVariant="true"
                                         visibleInFilterBar="true">
                                         <fb:control>
-                                            <DatePicker
-                                                id="idDatePickerDataPedido01"
-                                                change="onChange"/>
+                                            <ComboBox
+                                                id="idComboBoxStatus01"
+                                                items="{
+                                                    path: ''
+                                                }">
+                                                <core:Item key="{key}" text="{text}" />
+                                            </ComboBox>
+<!-- 
+                                            <ComboBox
+                                                id="idComboBoxStatus01"
+                                                items="{
+                                                    path: '/Status'
+                                                }">
+                                                <core:Item key="{key}" text="{text}" />
+                                            </ComboBox>
+ -->
                                         </fb:control>
                                     </fb:FilterGroupItem>
                                 </fb:filterGroupItems>
@@ -160,10 +187,52 @@
                         </l:VerticalLayout>
 
 
+<!--
                         <Table
                             id="idTable01"
                             items="{
                                 path: 'modelMockData1>/idTable01/data'
+                            }"
+                            columns="{
+                                path: 'modelTableDefinition>/idTable01/fields'
+                            }">
+                            <columns>
+                                <Column
+                                    width="{modelTableDefinition>column/width}">
+                                    <Label
+                                        text="{modelTableDefinition>name}" />
+                                </Column>
+                            </columns>
+                            <items>
+                                <ColumnListItem
+                                    vAlign="Middle"
+                                    type="Navigation"
+                                    press="onNavigation" >
+                                    <cells>
+                                        <Text text="{modelMockData1>NumControle}" wrapping="false" />
+                                        <Text text="{modelMockData1>Comprador} - {modelMockData1>NomeComprador}" wrapping="false" />
+                                        <Text text="{modelMockData1>Cd}" wrapping="false" />
+                                        <Text text="{modelMockData1>Fornecedor} - {modelMockData1>NomeFornecedor}" wrapping="false" />
+                                        <Text text="{modelMockData1>DataPedido}" wrapping="false" />
+                                        <Text text="{modelMockData1>ItensTotal}" wrapping="false" />
+                                        <Text text="{modelMockData1>ItensPend}" wrapping="false" />
+                                        <ObjectStatus
+                                            text="{modelMockData1>Status}"
+                                            state="{
+                                                path: 'modelMockData1>Status',
+                                                formatter: '.formatter.statusFormat'
+                                            }" />
+                                    </cells>
+                                </ColumnListItem>
+                            </items>
+                        </Table>
+-->
+
+
+                        <Table
+                            id="idTable01"
+                            items="{
+                                path: '/AprovPedidoSet'
                             }"
                             columns="{
                                 path: 'modelTableDefinition>/idTable01/fields'
@@ -193,15 +262,20 @@
                                     type="Navigation"
                                     press="onNavigation" >
                                     <cells>
-                                        <Text text="{modelMockData1>Solicitacao}" wrapping="false" />
-                                        <Text text="{modelMockData1>Comprador}" wrapping="false" />
-                                        <Text text="{modelMockData1>Fornecedor}" wrapping="false" />
-                                        <Text text="{modelMockData1>Cd}" wrapping="false" />
-                                        <Text text="{modelMockData1>DataPedido}" wrapping="false" />
-                                        <Text text="{modelMockData1>ItensPend}" wrapping="false" />
-                                        <Text text="{modelMockData1>ItensAprov}" wrapping="false" />
-                                        <Text text="{modelMockData1>ItensReprov}" wrapping="false" />
-                                        <Text text="{modelMockData1>TotalItens}" wrapping="false" />
+                                        <Text text="{Nroseq}" wrapping="false" />
+                                        <Text text="{Ekgrp} - {EkgrpNome}" wrapping="false" />
+                                        <Text text="{Werks}" wrapping="false" />
+                                        <Text text="{Lifnr} - {LifnrNome}" wrapping="false" />
+                                        <Text text="{DataPed}" wrapping="false" />
+                                        <Text text="{QtdeTotal}" wrapping="false" />
+                                        <Text text="{QtdeAprov}" wrapping="false" />
+                                        <Text text="{Status}" wrapping="false" />
+                                        <!-- <ObjectStatus
+                                            text="{Status}"
+                                            state="{
+                                                path: 'Status',
+                                                formatter: '.formatter.statusFormat'
+                                            }" /> -->
                                     </cells>
                                 </ColumnListItem>
                             </items>

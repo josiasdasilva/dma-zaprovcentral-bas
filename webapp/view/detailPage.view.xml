@@ -13,6 +13,85 @@
 				<content>
 
 
+<!-- 
+                    <ObjectHeader
+                        binding="{modelMockData1>/idTable01/data/1}"
+                        title="Nº Controle: {modelMockData1>NumControle}"
+                        number=""
+                        numberUnit="" >
+                        <attributes>
+                            <ObjectAttribute text="{modelMockData1>Comprador} - {modelMockData1>NomeComprador}" />
+                            <ObjectAttribute text="{modelMockData1>Cd}" />
+                            <ObjectAttribute text="{modelMockData1>Fornecedor} - {modelMockData1>NomeFornecedor}" />
+                        </attributes>
+                    </ObjectHeader>
+
+                    <Table
+                        id="idTable02"
+                        mode="MultiSelect"
+                        items="{
+                            path: 'modelMockData1>/idTable02/data'
+                        }"
+                        columns="{
+                            path: 'modelTableDefinition>/idTable02/fields'
+                        }"
+                        selectionChange="onLineSelection" >
+
+                        <headerToolbar>
+                            <OverflowToolbar>
+                                <ToolbarSpacer/>
+				                <Button
+                                    text="Aprovar"
+                                    icon="sap-icon://accept"
+                                    press="" />
+				                <Button
+                                    text="Reprovar"
+                                    icon="sap-icon://decline"
+                                    press="" />
+                            </OverflowToolbar>
+                        </headerToolbar>
+
+                        <columns>
+                            <Column
+                                width="{modelTableDefinition>column/width}">
+                                <Label
+                                    text="{modelTableDefinition>name}" />
+                            </Column>
+                        </columns>
+                        <items>
+                            <ColumnListItem
+                                vAlign="Middle" >
+                                <cells>
+                                    <Text text="{modelMockData1>CodMaterial} - {modelMockData1>DescMaterial}" wrapping="false" />
+                                    <Text text="{modelMockData1>QuantidadeSolicitada}" wrapping="false" />
+                                    <Input id="idInputQtdeAprovada" value="{modelMockData1>QuantidadeAprovada}" width="70%" />
+                                    <Text text="{modelMockData1>Solicitante}" wrapping="false" />
+                                    <Text text="{modelMockData1>DataSolicitacao} {modelMockData1>HoraSolicitacao}" wrapping="false" />
+                                    <ObjectStatus
+                                        text="{modelMockData1>Status}"
+                                        state="{
+                                            path: 'modelMockData1>Status',
+                                            formatter: '.formatter.statusFormat'
+                                        }" />
+                                </cells>
+                            </ColumnListItem>
+                        </items>
+                    </Table>
+-->
+
+
+                    <ObjectHeader
+                        binding="{modelTableSelectedLine>/}"
+                        title="Nº Controle: {modelTableSelectedLine>Nroseq}"
+                        number=""
+                        numberUnit="" >
+                        <attributes>
+                            <ObjectAttribute text="{modelTableSelectedLine>Ekgrp} - {modelTableSelectedLine>EkgrpNome}" />
+                            <ObjectAttribute text="{modelTableSelectedLine>Werks}" />
+                            <ObjectAttribute text="{modelTableSelectedLine>Lifnr} - {modelTableSelectedLine>LifnrNome}" />
+                        </attributes>
+                    </ObjectHeader>
+
 <!--
                     <l:VerticalLayout width="100%">
                         <fb:FilterBar
@@ -101,7 +180,7 @@
                         id="idTable02"
                         mode="MultiSelect"
                         items="{
-                            path: 'modelMockData1>/idTable02/data'
+                            path: '/AprovMaterialSet'
                         }"
                         columns="{
                             path: 'modelTableDefinition>/idTable02/fields'
@@ -120,7 +199,7 @@
 				                <Button
                                     text="Aprovar"
                                     icon="sap-icon://accept"
-                                    press="" />
+                                    press="onPressButtonApprove" />
 				                <Button
                                     text="Reprovar"
                                     icon="sap-icon://decline"
@@ -139,18 +218,32 @@
                             <ColumnListItem
                                 vAlign="Middle" >
                                 <cells>
-                                    <Text text="{modelMockData1>NumItem}" wrapping="false" />
-                                    <Text text="{modelMockData1>CodMaterial}" wrapping="false" />
-                                    <Text text="{modelMockData1>DescMaterial}" wrapping="false" />
-                                    <Text text="{modelMockData1>Quantidade}" wrapping="false" />
-                                    <Text text="{modelMockData1>Preco}" wrapping="false" />
-                                    <Text text="{modelMockData1>Total}" wrapping="false" />
-                                    <Text text="{modelMockData1>UnidMedida}" wrapping="false" />
-                                    <!-- <Text text="{modelMockData1>StatusItem}" wrapping="false" /> -->
+                                    <Text text="{Matnr} - {Maktx}" wrapping="false" />
+                                    <Text text="{QtdeSolic}" wrapping="false" />
+                                    <Input id="idInputQtdeAprovada" value="{QtdeAprov}" width="70%" />
+<!-- 
+// tableDefinition.json
+...
+            {
+                "name": "Solicitante",
+                "column": {
+                    "width": "auto"
+                }
+            },
+            {
+                "name": "Data/Hora da Solicitação",
+                "column": {
+                    "width": "auto"
+                }
+            },
+...
+                                    <Text text="{modelMockData1>Solicitante}" wrapping="false" />
+                                    <Text text="{modelMockData1>DataSolicitacao} {modelMockData1>HoraSolicitacao}" wrapping="false" />
+ -->
                                     <ObjectStatus
-                                        text="{modelMockData1>StatusItem}"
+                                        text="{Status}"
                                         state="{
-                                            path: 'modelMockData1>StatusItem',
+                                            path: 'Status',
                                             formatter: '.formatter.statusFormat'
                                         }" />
                                 </cells>

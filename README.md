@@ -7,7 +7,7 @@
 |**Generation Platform**<br>SAP Business Application Studio|
 |**Floorplan Used**<br>simple|
 |**Service Type**<br>None|
-|**Service URL**<br>http://devsapecc02.grupodma.intra:8000/sap/opu/odata/sap/ZCOCKPIT_CENTRAL_SRV
+|**Service URL**<br>http://devsapecc02.grupodma.intra:8000/sap/opu/odata/sap/ZCOCKPIT_APROVCENTRAL_SRV
 |**Module Name**<br>zaprovcentral|
 |**Application Title**<br>Aprovações - Central|
 |**Namespace**<br>dma|
