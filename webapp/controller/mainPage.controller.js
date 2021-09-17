@@ -82,7 +82,7 @@ sap.ui.define([
          * @param {sap.ui.base.Event} oEvt - Dados do evento acionado
          */
         onValueHelpRequestCd: function(oEvt){
-            // debugger;
+            //debugger;
             sap.m.MessageToast.show("CD Value Help pressed");
         },
 
@@ -99,7 +99,7 @@ sap.ui.define([
          * @param {sap.ui.base.Event} oEvt - Dados do evento acionado
          */
         onValueHelpRequestComprador: function(oEvt){
-            // debugger;
+            //debugger;
             const oField = sap.ui.getCore().byId(oEvt.getParameter("id"));
             sap.m.MessageToast.show("Comprador Value Help pressed");
 
@@ -133,7 +133,7 @@ sap.ui.define([
          * @param {sap.ui.base.Event} oEvt - Dados do evento acionado
          */
         onValueHelpCompradorSearch: function(oEvt){
-            debugger;
+            //debugger;
 
             let aFilters    = [];
             let oBinding    = oEvt.getSource().getBinding("items"),
@@ -188,7 +188,7 @@ sap.ui.define([
         //  * @param {sap.ui.base.Event} oEvt - Dados do evento acionado
         //  */
         // onValueHelpRequestComprador: function(oEvt){
-        //     // debugger;
+        //     //debugger;
         //     const oField = sap.ui.getCore().byId(oEvt.getParameter("id"));
         //     sap.m.MessageToast.show("Comprador Value Help pressed");
 
@@ -277,7 +277,7 @@ sap.ui.define([
          * @param {sap.ui.base.Event} oEvt - Dados do evento acionado
          */
         onValueHelpRequestFornecedor: function(oEvt){
-            // debugger;
+            //debugger;
             const oField = sap.ui.getCore().byId(oEvt.getParameter("id"));
             sap.m.MessageToast.show("Fornecedor Value Help pressed");
 
@@ -309,7 +309,7 @@ sap.ui.define([
          * @param {sap.ui.base.Event} oEvt - Dados do evento acionado
          */
         onValueHelpFornecedorSearch: function(oEvt){
-            debugger;
+            //debugger;
 
             let aFilters    = [];
             let oBinding    = oEvt.getSource().getBinding("items"),
@@ -360,7 +360,7 @@ sap.ui.define([
          * @param {sap.ui.base.Event} oEvt - Dados do evento acionado
          */
         onValueHelpRequestNumControle: function(oEvt){
-            // debugger;
+            //debugger;
             sap.m.MessageToast.show("Nº Controle Value Help pressed");
         },
 
@@ -372,7 +372,7 @@ sap.ui.define([
         onNavigation: function(oEvt){
             const oModel = this.getView().getModel();
             
-            // debugger;
+            //debugger;
             
             // this.getView().getModel("modelMockData1").getProperty(oEvt.getSource().getBindingContextPath());
 

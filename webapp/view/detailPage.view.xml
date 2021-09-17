@@ -220,7 +220,7 @@
                                 <cells>
                                     <Text text="{Matnr} - {Maktx}" wrapping="false" />
                                     <Text text="{QtdeSolic}" wrapping="false" />
-                                    <Input id="idInputQtdeAprovada" value="{QtdeAprov}" width="70%" />
+                                    <Input id="idInputQtdeAprovada" value="{QtdeAprov}" width="50%" />
 <!-- 
 // tableDefinition.json
 ...

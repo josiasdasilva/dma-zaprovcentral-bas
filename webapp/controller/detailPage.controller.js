@@ -2,8 +2,10 @@ sap.ui.define([
     // "sap/ui/core/mvc/Controller",
     "dma/zaprovcentral/controller/BaseController",
     "sap/ui/core/routing/History",
-    "dma/zaprovcentral/controller/formatter"
-], function (BaseController, History, Formatter) {
+    "dma/zaprovcentral/controller/formatter",
+    "sap/m/MessageBox",
+    "sap/m/MessageToast"
+], function (BaseController, History, Formatter, MessageBox, MessageToast){
 	"use strict";
 
 	return BaseController.extend("dma.zaprovcentral.controller.detailPage", {
@@ -93,6 +95,7 @@ sap.ui.define([
          * @param {sap.ui.base.Event} oEvt - Dados do evento acionado 
          */
         onLineSelection: function(oEvt){
+/*
             // const oModel = this.getView().getModel("modelMockData1"),
             const oModel = this.getView().getModel(),
                   oItemsSelected = oEvt.getSource().getSelectedItems();
@@ -107,6 +110,7 @@ sap.ui.define([
                 sSelectedItems = sSelectedItems.slice(0, sSelectedItems.length - 3);
                 sap.m.MessageToast.show(sSelectedItems);
             }
+*/
         },
         
 
@@ -115,26 +119,73 @@ sap.ui.define([
          * @param {sap.ui.base.Event} oEvt - Dados do evento acionado
          */
         onPressButtonApprove: function(oEvt){
-            let iIndexColunaQtd = -1;
-            const oColumns = this._detailTable.getAggregation("columns"),
+            let iIndexColunaQtd = -1,
+                sPath = "";
+            const bCompact = !!this.getView().$().closest(".sapUiSizeCompact").length,
+                  oColumns = this._detailTable.getAggregation("columns"),
+                  oModel = this.getView().getModel(),
                   oSelectedItems = this._detailTable.getSelectedItems();
+            const oParameters = {
+                      "groupId": "massApproval",
+                      "success": function(oData, oRes){
+                          console.log(oRes);
+                          
+                          this._detailTable.removeSelections();
+
+                          MessageBox.success(
+                              `Registro(s) atualizado(s) com sucesso.`,
+                              { styleClass: bCompact ? "sapUiSizeCompact" : "" }
+                          );
+                      }.bind(this),
+                      "error": function(oError){
+                          console.log(oError);
+                          MessageBox.error(
+                              `Erro ao atualizar o(s) registro(s):
+                              ${oError}`,
+                              { styleClass: bCompact ? "sapUiSizeCompact" : "" }
+                          );
+                      }
+                  };
             
-            debugger;
+            //debugger;
 
-            for(let iIndex in oColumns){
-                if(oColumns[iIndex].getAggregation("header").getProperty("text") === "Quantidade Aprovada"){
-                    iIndexColunaQtd = iIndex;
-                    break;
+            if(oSelectedItems.length > 0){
+                for(let iIndex in oColumns){
+                    if(oColumns[iIndex].getAggregation("header").getProperty("text") === "Quantidade Aprovada"){
+                        iIndexColunaQtd = iIndex;
+                        break;
+                    }
                 }
-            }
 
-            if(iIndexColunaQtd >= 0){
-                for(let iIndex in oSelectedItems){
-                    console.log(oSelectedItems[iIndex].getAggregation("cells")[iIndexColunaQtd].getProperty("value"));
-                    // Efetua update em "AprovMaterialSet" (batch)
+                if(iIndexColunaQtd >= 0){
+                    oModel.setUseBatch(true);
+                    oModel.setDeferredGroups(["massApproval"]);
+
+                    for(let iIndex in oSelectedItems){
+                        // console.log(oSelectedItems[iIndex].getAggregation("cells")[iIndexColunaQtd].getProperty("value"));
+
+                        sPath = this.getView().byId("idTable02").getSelectedItems()[0].getBindingContextPath();
+
+                        // Efetua update em "AprovMaterialSet" (batch)
+                        oModel.update(
+                            sPath,
+                            {
+                                "QtdeAprov": oSelectedItems[iIndex].getAggregation("cells")[iIndexColunaQtd].getProperty("value")
+                            },
+                            oParameters
+                        );
+                    }
+
+                    oModel.submitChanges({
+                        oParameters
+                    });
+                }else{
+                    // Erro ao encontrar a coluna de "Quantidade Aprovada"
                 }
             }else{
-                // Erro ao encontrar a coluna de "Quantidade Aprovada"
+                MessageToast.show("É necessário selecionar ao menos um registro.",{
+                    "duration": 4000
+                })
             }
         },
 
