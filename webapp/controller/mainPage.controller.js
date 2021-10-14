@@ -101,7 +101,7 @@ sap.ui.define([
         onValueHelpRequestComprador: function(oEvt){
             //debugger;
             const oField = sap.ui.getCore().byId(oEvt.getParameter("id"));
-            sap.m.MessageToast.show("Comprador Value Help pressed");
+            // sap.m.MessageToast.show("Comprador Value Help pressed");
 
             // Cria o fragmento (ajuda de pesquisa)
             if (!this._ShCompradorDialog) {
@@ -279,7 +279,7 @@ sap.ui.define([
         onValueHelpRequestFornecedor: function(oEvt){
             //debugger;
             const oField = sap.ui.getCore().byId(oEvt.getParameter("id"));
-            sap.m.MessageToast.show("Fornecedor Value Help pressed");
+            // sap.m.MessageToast.show("Fornecedor Value Help pressed");
 
             // Cria o fragmento (ajuda de pesquisa)
             if (!this._ShFornecedorDialog) {
@@ -356,15 +356,100 @@ sap.ui.define([
 // Nº Controle                                                          //
 //----------------------------------------------------------------------//
         /**
-         * 
+         * Evento acionado ao abrir o Search Help do campo "idInputNumControle01", onde é acionado o
+         * fragmento "ShNumControle".
+         * Carrega os dados previamente selecionados no "SelectDialog" e aplica filtro dos campos
+         * que tem interdependência.
+         * @public
          * @param {sap.ui.base.Event} oEvt - Dados do evento acionado
          */
         onValueHelpRequestNumControle: function(oEvt){
             //debugger;
-            sap.m.MessageToast.show("Nº Controle Value Help pressed");
+            const oField = sap.ui.getCore().byId(oEvt.getParameter("id"));
+            // sap.m.MessageToast.show("NumControle Value Help pressed");
+
+            // Cria o fragmento (ajuda de pesquisa)
+            if (!this._ShNumControleDialog) {
+                this._ShNumControleDialog = sap.ui.xmlfragment("dma.zaprovcentral.view.fragments.ShNumControle", this);
+                this.getView().addDependent(this._ShNumControleDialog);
+            }
+
+            //this.onValueHelpRememberSelections("idMultiInputNumControle01", this._ShNumControleDialog);
+            
+            this.onValueHelpNumControlePreFilter(oEvt);
+
+            this._ShNumControleDialog.open();
         },
 
 
+        /**
+         * Aplica os filtros dos campos que tem interdependência para o campo "idInputNumControle01".
+         * @public
+         * @param {sap.ui.base.Event} oEvt - Dados do evento acionado
+         */
+        onValueHelpNumControlePreFilter: function(oEvt){
+            //debugger;
+        },
+
+
+        /**
+         * Evento acionado ao clicar no botão "Cancelar" do "SelectDialog" do campo "idInputNumControle01".
+         * @public
+         * @param {sap.ui.base.Event} oEvt - Dados do evento acionado
+         */
+        onValueHelpNumControleSearch: function(oEvt){
+            //debugger;
+
+            let aFilters    = [];
+            let oBinding    = oEvt.getSource().getBinding("items"),
+                oFilter     = {};
+            let sValue      = oEvt.getParameter("value").toUpperCase();
+
+            if(sValue){
+                // oFilter = new Filter("Ekgrp", FilterOperator.Contains, sValue);
+                // aFilters.push(oFilter);
+
+                oFilter = new Filter("Nome", FilterOperator.Contains, sValue);
+                aFilters.push(oFilter);
+
+                // oBinding.filter(new Filter(aFilters, true)); // Multiple filter (array) / Second parameter (true = AND operator / false = OR operator)
+                oBinding.filter(aFilters);
+            }else{
+                oBinding.filter([]);
+            }
+        },
+
+
+        /**
+         * Evento acionado ao clicar no botão "Cancelar" do "SelectDialog" do campo "idInputNumControle01".
+         * @public
+         * @param {sap.ui.base.Event} oEvt - Dados do evento acionado
+         */
+        onValueHelpNumControleCancel: function(oEvt){
+            //debugger;
+        },
+
+
+        /**
+         * Aplica no campo "idInputNumControle01" os valores selecionados no "SelectDialog" do fragmento.
+         * @public
+         * @param {sap.ui.base.Event} oEvt - Dados do evento acionado
+         */
+        onValueHelpNumControleClose: function(oEvt){
+            //debugger;
+            this.onValueHelpCloseInput(oEvt, "idInputNumControle01");
+        },
+
+
+        /**
+         * 
+         * @param {sap.ui.base.Event} oEvt - Dados do evento acionado
+         */
+        onSearch: function(oEvt){
+            debugger;
+        },
+        
+        
         /**
          * 
          * @param {sap.ui.base.Event} oEvt - Dados do evento acionado
