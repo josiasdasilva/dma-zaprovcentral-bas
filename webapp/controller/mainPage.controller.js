@@ -446,7 +446,53 @@ sap.ui.define([
          * @param {sap.ui.base.Event} oEvt - Dados do evento acionado
          */
         onSearch: function(oEvt){
-            debugger;
+            let     aField = [];
+            const   aFilters = [],
+                    aInputs = [],
+                    oTable = this.getView().byId("idTable01"),
+                    oTableItems = oTable.getBinding("items");
+            
+            aField = [];
+            aField.push("Id");
+            aField.push(FilterOperator.Contains);
+            aField.push(this.getView().byId("idInputNumControle01").getValue());
+            aInputs.push(aField);
+
+            aField = [];
+            aField.push("Ekgrp");
+            aField.push(FilterOperator.Contains);
+            aField.push(this.getView().byId("idInputComprador01").getValue());
+            aInputs.push(aField);
+
+            aField = [];
+            aField.push("DataPed");
+            aField.push(FilterOperator.EQ);
+            aField.push(this.getView().byId("idDatePickerDataPedido01").getValue());
+            aInputs.push(aField);
+
+            aField = [];
+            aField.push("Lifnr");
+            aField.push(FilterOperator.Contains);
+            aField.push(this.getView().byId("idInputFornecedor01").getValue());
+            aInputs.push(aField);
+
+            aField = [];
+            aField.push("Status");
+            aField.push(FilterOperator.Contains);
+            aField.push(this.getView().byId("idComboBoxStatus01").getSelectedKey());
+            aInputs.push(aField);
+
+            for(let iIndexInputs in aInputs){
+                if(aInputs[iIndexInputs][2]){
+                    aFilters.push(new Filter(aInputs[iIndexInputs][0], aInputs[iIndexInputs][1], aInputs[iIndexInputs][2]));
+                }
+            }
+
+            if(aFilters.length > 0){
+                oTableItems.filter(aFilters);
+            }else{
+                oTableItems.filter([]);
+            }
         },
         
         

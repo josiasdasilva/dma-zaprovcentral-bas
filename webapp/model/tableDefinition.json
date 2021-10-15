@@ -7,7 +7,7 @@
                     "width": "auto"
                 },
                 "filter": {
-                    "inputid": "idMultiInputNumControle01",
+                    "inputid": "idInputNumControle01",
                     "inputvaluehelpmethod": "onValueHelpRequestNumControle"
                 }
             },

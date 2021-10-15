@@ -97,8 +97,8 @@
                                         partOfCurrentVariant="true"
                                         visibleInFilterBar="true">
                                         <fb:control>
-                                            <MultiInput
-                                                id="idMultiInputNumControle01"
+                                            <Input
+                                                id="idInputNumControle01"
                                                 value=""
                                                 placeholder=""
                                                 showValueHelp="true"
@@ -114,7 +114,7 @@
                                         partOfCurrentVariant="true"
                                         visibleInFilterBar="true">
                                         <fb:control>
-                                            <MultiInput
+                                            <Input
                                                 id="idInputComprador01"
                                                 value=""
                                                 placeholder=""
@@ -133,6 +133,7 @@
                                         <fb:control>
                                             <DatePicker
                                                 id="idDatePickerDataPedido01"
+                                                valueFormat="yyyy-MM-dd"
                                                 change="onChange"/>
                                         </fb:control>
                                     </fb:FilterGroupItem>
