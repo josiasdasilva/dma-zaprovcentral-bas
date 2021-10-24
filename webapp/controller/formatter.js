@@ -23,6 +23,18 @@ sap.ui.define([], function () {
                     return sap.ui.core.ValueState.None;
                     // break;
             }
+		},
+    	dateFormat: function (a) {
+			if (a !== null) {
+				a = a.toLocaleString("pt-BR", {
+					year: "numeric",
+					month: "2-digit",
+					day: "2-digit"
+				});
+			} else {
+				a = "";
+			}
+			return a;
 		}
 	};
 });

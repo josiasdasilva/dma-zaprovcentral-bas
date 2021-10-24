@@ -177,7 +177,7 @@ sap.ui.define([
                     }
 
                     oModel.submitChanges({
-                        oParameters
+                        oParameters x
                     });
                 }else{
                     // Erro ao encontrar a coluna de "Quantidade Aprovada"

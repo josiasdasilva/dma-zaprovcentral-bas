@@ -467,7 +467,7 @@ sap.ui.define([
             aField = [];
             aField.push("DataPed");
             aField.push(FilterOperator.EQ);
-            aField.push(this.getView().byId("idDatePickerDataPedido01").getValue());
+            aField.push(this.getView().byId("idDatePickerDataPedido01").getDateValue());
             aInputs.push(aField);
 
             aField = [];

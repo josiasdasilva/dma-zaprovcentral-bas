@@ -192,17 +192,6 @@ td[data-mydata="ajuste"] {
     height: 0em
 }
 
-
-/* .sapMSLIIconThumb, .sapMSLIDescNoIcon, .sapMSLIDescIcon { */
-
-.sapMSLITitleOnly {
-    font-size: 0.875rem;
-}
-
-._cl_idProdutos {
-    height: 2.5rem;
-}
-
 .inputCompras .sapMInputBaseInner {
     font-size: 0.70em;
     font-family: Arial, Helvetica, sans-serif;
@@ -213,6 +202,19 @@ td[data-mydata="ajuste"] {
     text-align: right;
 }
 
+.inputAprovacao .sapMInputBaseInner {
+    text-align: right;
+}
+
+/* .sapMSLIIconThumb, .sapMSLIDescNoIcon, .sapMSLIDescIcon { */
+
+.sapMSLITitleOnly {
+    font-size: 0.875rem;
+}
+
+._cl_idProdutos {
+    height: 2.5rem;
+}
 
 /*
 .sapMText { font-size: 0.700rem }

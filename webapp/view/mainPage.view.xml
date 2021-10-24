@@ -133,7 +133,8 @@
                                         <fb:control>
                                             <DatePicker
                                                 id="idDatePickerDataPedido01"
-                                                valueFormat="yyyy-MM-dd"
+                                                valueFormat="yyyyMMdd"
+                                                displayFormat="dd/MM/yyyy"
                                                 change="onChange"/>
                                         </fb:control>
                                     </fb:FilterGroupItem>
@@ -247,7 +248,8 @@
 -->
                             <columns>
                                 <Column
-                                    width="{modelTableDefinition>column/width}">
+                                    width="{modelTableDefinition>column/width}"
+                                    hAlign="{modelTableDefinition>column/align}">
                                     <Label
                                         text="{modelTableDefinition>name}" />
                                 </Column>
@@ -267,8 +269,8 @@
                                         <Text text="{Ekgrp} - {EkgrpNome}" wrapping="false" />
                                         <Text text="{Werks}" wrapping="false" />
                                         <Text text="{Lifnr} - {LifnrNome}" wrapping="false" />
-                                        <Text text="{DataPed}" wrapping="false" />
-                                        <Text text="{QtdeTotal}" wrapping="false" />
+                                        <Text text="{path:'DataPed', formatter: '.formatter.dateFormat'}" wrapping="false" />
+                                        <Text text="{QtdeTotal}" wrapping="false"/>
                                         <Text text="{QtdeAprov}" wrapping="false" />
                                         <Text text="{Status}" wrapping="false" />
                                         <!-- <ObjectStatus

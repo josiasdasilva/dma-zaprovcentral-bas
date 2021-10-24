@@ -4,7 +4,8 @@
             {
                 "name": "Nº Controle",
                 "column": {
-                    "width": "auto"
+                    "width": "120px",
+                    "align": "Center"
                 },
                 "filter": {
                     "inputid": "idInputNumControle01",
@@ -24,7 +25,8 @@
             {
                 "name": "CD",
                 "column": {
-                    "width": "auto"
+                    "width": "110px",
+                    "align": "Center"
                 }
             },
             {
@@ -40,28 +42,32 @@
             {
                 "name": "Data do Pedido",
                 "column": {
-                    "width": "auto"
+                    "width": "150px",
+                    "align": "Center"
                 },
                 "filter": {
                     "inputid": "idDatePickerDataPedido01"
                 }
             },
             {
-                "name": "Itens (Total)",
+                "name": "Sugestão",
                 "column": {
-                    "width": "auto"
+                    "width": "200px",
+                    "align": "Center"
                 }
             },
             {
-                "name": "Itens (Pendentes)",
+                "name": "Requisição",
                 "column": {
-                    "width": "auto"
+                    "width": "200px",
+                    "align": "Center"
                 }
             },
             {
                 "name": "Status",
                 "column": {
-                    "width": "auto"
+                    "width": "50px",
+                    "align": "Center"
                 },
                 "filter": {
                     "inputid": "idComboBoxStatus01"
@@ -80,19 +86,22 @@
             {
                 "name": "Quantidade Solicitada",
                 "column": {
-                    "width": "auto"
+                    "width": "auto",
+                    "align": "Center"
                 }
             },
             {
                 "name": "Quantidade Aprovada",
                 "column": {
-                    "width": "auto"
+                    "width": "auto",
+                    "align": "End"
                 }
             },
             {
                 "name": "Status",
                 "column": {
-                    "width": "auto"
+                    "width": "auto",
+                    "align": "Center"
                 }
             }
         ]

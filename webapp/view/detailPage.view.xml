@@ -209,18 +209,18 @@
 
                         <columns>
                             <Column
-                                width="{modelTableDefinition>column/width}">
+                                width="{modelTableDefinition>column/width}"
+                                hAlign="{modelTableDefinition>column/align}">
                                 <Label
                                     text="{modelTableDefinition>name}" />
                             </Column>
                         </columns>
                         <items>
-                            <ColumnListItem
-                                vAlign="Middle" >
+                            <ColumnListItem >
                                 <cells>
                                     <Text text="{Matnr} - {Maktx}" wrapping="false" />
                                     <Text text="{QtdeSolic}" wrapping="false" />
-                                    <Input id="idInputQtdeAprovada" value="{QtdeAprov}" width="50%" />
+                                    <Input id="idInputQtdeAprovada" class="inputAprovacao" value="{QtdeAprov}" width="50%" fieldWidth="100%" type="Text"/>
 <!-- 
 // tableDefinition.json
 ...

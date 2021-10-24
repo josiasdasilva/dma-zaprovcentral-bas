@@ -11,26 +11,23 @@
       "name": "dma-zaprovcentral-bas",
       "cwd": "${workspaceFolder}",
       "runtimeArgs": [
-        "run-script",
-        "start"
+        "fiori",
+        "run"
       ],
       "type": "node",
       "request": "launch",
-      "runtimeExecutable": "npm",
+      "runtimeExecutable": "npx",
       "args": [
-        "--",
-        "--ui5"
+        "--open",
+        "'index.html?sap-client=410'"
       ],
       "windows": {
-        "runtimeExecutable": "npm.cmd",
-        "args": [
-          "--",
-          "--ui5"
-        ]
+        "runtimeExecutable": "npx.cmd"
       },
       "console": "internalConsole",
       "internalConsoleOptions": "openOnSessionStart",
       "env": {
+        "FIORI_TOOLS_BACKEND_CONFIG": "[{\"path\":\"/sap\",\"destination\":\"DMA_410\"}]",
         "run.config": "{\"handlerId\":\"fiori_tools\",\"runnableId\":\"/home/user/projects/dma-zaprovcentral-bas\"}"
       }
     }
