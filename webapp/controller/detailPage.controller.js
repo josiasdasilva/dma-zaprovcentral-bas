@@ -120,6 +120,7 @@ sap.ui.define([
          */
         onPressButtonApprove: function(oEvt){
             let iIndexColunaQtd = -1,
+                iIndexColunaMatnr = -1,
                 sPath = "";
             const bCompact = !!this.getView().$().closest(".sapUiSizeCompact").length,
                   oColumns = this._detailTable.getAggregation("columns"),
@@ -153,11 +154,15 @@ sap.ui.define([
                 for(let iIndex in oColumns){
                     if(oColumns[iIndex].getAggregation("header").getProperty("text") === "Quantidade Aprovada"){
                         iIndexColunaQtd = iIndex;
-                        break;
+                    }
+                    if(oColumns[iIndex].getAggregation("header").getProperty("text") === "Material"){
+                        iIndexColunaMatnr = iIndex;
                     }
                 }
 
                 if(iIndexColunaQtd >= 0){
+                    const oSelectedLine = this.getView().getModel("modelTableSelectedLine").getData();
+
                     oModel.setUseBatch(true);
                     oModel.setDeferredGroups(["massApproval"]);
 
@@ -170,14 +175,17 @@ sap.ui.define([
                         oModel.update(
                             sPath,
                             {
-                                "QtdeAprov": oSelectedItems[iIndex].getAggregation("cells")[iIndexColunaQtd].getProperty("value")
+                                "Nroseq": oSelectedLine.Nroseq,
+                                "Matnr": oSelectedItems[iIndex].getAggregation("cells")[iIndexColunaMatnr].getBindingInfo("text").binding.aValues[0],
+                                "QtdeAprov": oSelectedItems[iIndex].getAggregation("cells")[iIndexColunaQtd].getProperty("value"),
+                                "Status": "A"
                             },
                             oParameters
                         );
                     }
 
                     oModel.submitChanges({
-                        oParameters x
+                        oParameters
                     });
                 }else{
                     // Erro ao encontrar a coluna de "Quantidade Aprovada"

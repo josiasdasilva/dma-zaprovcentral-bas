@@ -84,6 +84,13 @@
                 }
             },
             {
+                "name": "Quantidade Requisição",
+                "column": {
+                    "width": "auto",
+                    "align": "Center"
+                }
+            },
+            {
                 "name": "Quantidade Solicitada",
                 "column": {
                     "width": "auto",

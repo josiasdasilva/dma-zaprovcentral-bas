@@ -219,6 +219,7 @@
                             <ColumnListItem >
                                 <cells>
                                     <Text text="{Matnr} - {Maktx}" wrapping="false" />
+                                    <Text text="{QtdeRequis}" wrapping="false" />
                                     <Text text="{QtdeSolic}" wrapping="false" />
                                     <Input id="idInputQtdeAprovada" class="inputAprovacao" value="{QtdeAprov}" width="50%" fieldWidth="100%" type="Text"/>
 <!-- 
