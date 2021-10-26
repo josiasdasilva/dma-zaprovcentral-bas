@@ -4,18 +4,18 @@ sap.ui.define([], function () {
 		statusFormat: function(sStatus){
             switch (sStatus) {
                 //case "Aprovado":
-                case "2":
+                case "A":
                     return sap.ui.core.ValueState.Success;
                     // break;
 
                 //case "Reprovado":
-                case "3":
+                case "R":
                     return sap.ui.core.ValueState.Error;
                     // break;
 
                 //case "Pendente":
-                case "0":
-                case "1":
+                case "N":
+                case "P":
                     return sap.ui.core.ValueState.None;
                     // break;
 

@@ -197,13 +197,15 @@
                             <OverflowToolbar>
                                 <ToolbarSpacer/>
 				                <Button
+                                    id="idButtonApprove"
                                     text="Aprovar"
                                     icon="sap-icon://accept"
-                                    press="onPressButtonApprove" />
+                                    press="onPressButtonApproveDisapprove" />
 				                <Button
+                                    id="idButtonDisapprove"
                                     text="Reprovar"
                                     icon="sap-icon://decline"
-                                    press="" />
+                                    press="onPressButtonApproveDisapprove" />
                             </OverflowToolbar>
                         </headerToolbar>
 

@@ -453,7 +453,7 @@ sap.ui.define([
                     oTableItems = oTable.getBinding("items");
             
             aField = [];
-            aField.push("Id");
+            aField.push("Nroseq");
             aField.push(FilterOperator.Contains);
             aField.push(this.getView().byId("idInputNumControle01").getValue());
             aInputs.push(aField);

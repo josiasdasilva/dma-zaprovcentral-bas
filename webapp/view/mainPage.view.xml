@@ -168,7 +168,7 @@
                                             <ComboBox
                                                 id="idComboBoxStatus01"
                                                 items="{
-                                                    path: 'ShStatusSet'
+                                                    path: '/ShStatusSet'
                                                 }">
                                                 <core:Item key="{Status}" text="{Descr}" />
                                             </ComboBox>

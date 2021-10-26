@@ -118,8 +118,10 @@ sap.ui.define([
          * 
          * @param {sap.ui.base.Event} oEvt - Dados do evento acionado
          */
-        onPressButtonApprove: function(oEvt){
-            let iIndexColunaQtd = -1,
+        // onPressButtonApprove: function(oEvt){
+        onPressButtonApproveDisapprove: function(oEvt){
+            let cStatus = "",
+                iIndexColunaQtd = -1,
                 iIndexColunaMatnr = -1,
                 sPath = "";
             const bCompact = !!this.getView().$().closest(".sapUiSizeCompact").length,
@@ -149,6 +151,12 @@ sap.ui.define([
                   };
             
             //debugger;
+            
+            if(oEvt.getParameter("id").search("idButtonApprove") >= 0){
+                cStatus = "A";
+            }else if(oEvt.getParameter("id").search("idButtonDisapprove") >= 0){
+                cStatus = "R";
+            }
 
             if(oSelectedItems.length > 0){
                 for(let iIndex in oColumns){
@@ -178,15 +186,15 @@ sap.ui.define([
                                 "Nroseq": oSelectedLine.Nroseq,
                                 "Matnr": oSelectedItems[iIndex].getAggregation("cells")[iIndexColunaMatnr].getBindingInfo("text").binding.aValues[0],
                                 "QtdeAprov": oSelectedItems[iIndex].getAggregation("cells")[iIndexColunaQtd].getProperty("value"),
-                                "Status": "A"
+                                "Status": cStatus
                             },
                             oParameters
                         );
                     }
 
-                    oModel.submitChanges({
-                        oParameters
-                    });
+                    oModel.submitChanges(
+                        //oParameters
+                    );
                 }else{
                     // Erro ao encontrar a coluna de "Quantidade Aprovada"
                 }
