@@ -502,17 +502,10 @@ sap.ui.define([
          */
         onNavigation: function(oEvt){
             const oModel = this.getView().getModel();
+            var globalModel = this.getView().getModel('globalModel');
             
-            //debugger;
-            
-            // this.getView().getModel("modelMockData1").getProperty(oEvt.getSource().getBindingContextPath());
-
-            // sap.m.MessageToast.show(oEvt.getSource().getBindingContextPath());
-            // this.getOwnerComponent().getRouter().navTo("routeDetailPage");
-
             let oSelectedLine = this.getView().getModel().getProperty(oEvt.getSource().getBindingContextPath());
             this.getView().getModel("modelTableSelectedLine").setData(oSelectedLine);
-
             this.getOwnerComponent().getRouter().navTo("routeDetailPage");
 
 /*

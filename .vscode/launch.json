@@ -8,30 +8,6 @@
   ],
   "configurations": [
     {
-      "name": "dma-zaprovcentral-bas",
-      "cwd": "${workspaceFolder}",
-      "runtimeArgs": [
-        "fiori",
-        "run"
-      ],
-      "type": "node",
-      "request": "launch",
-      "runtimeExecutable": "npx",
-      "args": [
-        "--open",
-        "'index.html?sap-client=410'"
-      ],
-      "windows": {
-        "runtimeExecutable": "npx.cmd"
-      },
-      "console": "internalConsole",
-      "internalConsoleOptions": "openOnSessionStart",
-      "env": {
-        "run.config": "{\"handlerId\":\"fiori_tools\",\"runnableId\":\"/home/user/projects/dma-zaprovcentral-bas\"}",
-        "FIORI_TOOLS_BACKEND_CONFIG": "[{\"path\":\"/sap\",\"url\":\"http://devsapecc02.grupodma.intra:8000/\",\"client\":\"410\"}]"
-      }
-    },
-    {
       "name": "dma-zaprovcentral-bas_DMA410",
       "cwd": "${workspaceFolder}",
       "runtimeArgs": [
@@ -51,35 +27,9 @@
       "console": "internalConsole",
       "internalConsoleOptions": "openOnSessionStart",
       "env": {
-        "run.config": "{\"handlerId\":\"fiori_tools\",\"runnableId\":\"/home/user/projects/dma-zaprovcentral-bas\"}",
         "FIORI_TOOLS_UI5_VERSION": "1.65.0",
         "FIORI_TOOLS_UI5_URI": "https://ui5.sap.com",
-        "FIORI_TOOLS_BACKEND_CONFIG": "[{\"path\":\"/sap\",\"destination\":\"DMA_410\"}]"
-      }
-    },
-    {
-      "name": "dma-zaprovcentral-bas_DMA410-2",
-      "cwd": "${workspaceFolder}",
-      "runtimeArgs": [
-        "fiori",
-        "run"
-      ],
-      "type": "node",
-      "request": "launch",
-      "runtimeExecutable": "npx",
-      "args": [
-        "--open",
-        "index.html?sap-client=410"
-      ],
-      "windows": {
-        "runtimeExecutable": "npx.cmd"
-      },
-      "console": "internalConsole",
-      "internalConsoleOptions": "openOnSessionStart",
-      "env": {
         "run.config": "{\"handlerId\":\"fiori_tools\",\"runnableId\":\"/home/user/projects/dma-zaprovcentral-bas\"}",
-        "FIORI_TOOLS_UI5_VERSION": "",
-        "FIORI_TOOLS_UI5_URI": "https://ui5.sap.com",
         "FIORI_TOOLS_BACKEND_CONFIG": "[{\"path\":\"/sap\",\"destination\":\"DMA_410\"}]"
       }
     }

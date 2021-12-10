@@ -185,7 +185,8 @@
                         columns="{
                             path: 'modelTableDefinition>/idTable02/fields'
                         }"
-                        selectionChange="onLineSelection" >
+                        selectionChange="onLineSelection"
+                        updateFinished="enableCriaPedido" >
 <!--
                         <headerToolbar>
                             <Toolbar>
@@ -224,38 +225,18 @@
                                     <Text text="{QtdeRequis}" wrapping="false" />
                                     <Text text="{QtdeSolic}" wrapping="false" />
                                     <Input id="idInputQtdeAprovada" class="inputAprovacao" value="{QtdeAprov}" width="50%" fieldWidth="100%" type="Text"/>
-<!-- 
-// tableDefinition.json
-...
-            {
-                "name": "Solicitante",
-                "column": {
-                    "width": "auto"
-                }
-            },
-            {
-                "name": "Data/Hora da Solicitação",
-                "column": {
-                    "width": "auto"
-                }
-            },
-...
-                                    <Text text="{modelMockData1>Solicitante}" wrapping="false" />
-                                    <Text text="{modelMockData1>DataSolicitacao} {modelMockData1>HoraSolicitacao}" wrapping="false" />
- -->
                                     <ObjectStatus
-                                        text="{Status}"
-                                        state="{
-                                            path: 'Status',
-                                            formatter: '.formatter.statusFormat'
-                                        }" />
+                                        text="{ path: 'Status', formatter: '.formatter.textFormat' }"
+                                        state="{ path: 'Status', formatter: '.formatter.statusFormat' }" 
+                                        icon="{ path: 'Status', formatter: '.formatter.iconFormat' }" />
                                 </cells>
                             </ColumnListItem>
                         </items>
                     </Table>
-
-
                 </content>
+                <headerContent>
+                    <Button id="botaoCriaPedido" text="{i18n>finalizapedido}" press="onCriaPedido" type="Accept" enabled="false" />
+                </headerContent>
             </Page>
         </pages>
     </App>
